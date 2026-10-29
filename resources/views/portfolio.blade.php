@@ -10,7 +10,7 @@
           content="My personal portfolio website">
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <script src="{{ asset('js/script.js') }}" defer></script>
+    <script src="{{ asset('script.js') }}" defer></script>
 </head>
 <body>
 
@@ -257,11 +257,77 @@
 }
 
    /* Laptop သေးသေးနဲ့ tablet */
+/* Desktop Navbar */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.94rem;
+    transition: color 0.25s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 22px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1002;
+}
+
+/* Mobile Screen */
 @media (max-width: 700px) {
     .project-card {
         flex-basis: 300px;
     }
-} 
+
+    .navbar {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 12px 20px;
+        background: #0b1024;
+        border: 1px solid var(--border);
+        border-radius: 0 0 12px 12px;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 12px 0;
+    }
+}
 
     .project-card:hover {
         transform: translateY(-4px);
